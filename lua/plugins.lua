@@ -1,7 +1,30 @@
 local lazy = require("lazy")
 
 lazy.setup({
-  { "folke/tokyonight.nvim" },
+  { "folke/tokyonight.nvim", 
+     priority = 1000,
+     lazy = false,
+  },
+{
+  "xiyaowong/transparent.nvim",
+  config = function()
+    require("transparent").setup({
+      enable = true,
+      extra_groups = {
+        "NormalFloat",
+        "NvimTreeNormal",
+        "FloatBorder",
+        "NormalNC",
+        "TelescopeNormal",
+        "Pmenu",
+        "CmpPmenu",
+        "BufferLineFill",
+      },
+      exclude = {},
+    })
+  end,
+},
+
   { "nvim-lualine/lualine.nvim" },
   { "nvim-tree/nvim-tree.lua" },
   { "nvim-tree/nvim-web-devicons" },
